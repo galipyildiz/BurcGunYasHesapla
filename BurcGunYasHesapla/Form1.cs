@@ -22,7 +22,7 @@ namespace BurcGunYasHesapla
         private void Hesapla()
         {
             dogumTarihi = dtpDogumTarihi.Value;
-            lblYas.Text = "Yaşınız: " + YasHesapla(dogumTarihi.Year);
+            lblYas.Text = "Yaşınız: " + YasHesapla(dogumTarihi);
             lblGun.Text = "Yaşadığınız Gün: " + GunHesapla(dogumTarihi);
             lblBurc.Text = "Burcunuz: " + BurcHesapla(dogumTarihi.Month, dogumTarihi.Day);
         }
@@ -88,9 +88,11 @@ namespace BurcGunYasHesapla
             return toplamGun.ToString();
         }
 
-        private string YasHesapla(int year)
+        private string YasHesapla(DateTime dogumTarihi)
         {
-            return (DateTime.Now.Year - year).ToString();
+            TimeSpan gecenSure = DateTime.Now - dogumTarihi;
+            int yas = (int)gecenSure.TotalDays / 365;
+            return yas.ToString();
         }
 
         private void btnHesapla_Click(object sender, EventArgs e)
