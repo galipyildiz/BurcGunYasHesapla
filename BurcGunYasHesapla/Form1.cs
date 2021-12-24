@@ -23,6 +23,14 @@ namespace BurcGunYasHesapla
         {
             dogumTarihi = dtpDogumTarihi.Value;
             lblYas.Text = "Yaşınız: " + YasHesapla(dogumTarihi.Year);
+            lblGun.Text = "Yaşadığınız Gün: " + GunHesapla(dogumTarihi);
+        }
+
+        private string GunHesapla(DateTime dogumTarihi)
+        {
+            TimeSpan gecenSure = DateTime.Now - dogumTarihi;
+            int toplamGun = (int)gecenSure.TotalDays;
+            return toplamGun.ToString();
         }
 
         private string YasHesapla(int year)
