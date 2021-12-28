@@ -17,6 +17,7 @@ namespace BurcGunYasHesapla
         {
             InitializeComponent();
             Hesapla();
+            label2.Text = "yeni branch";
         }
 
         private void Hesapla()
